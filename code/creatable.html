@@ -1,0 +1,17 @@
+<!-- Using data-bss-create attribute: -->
+<select class="form-select" data-bss-search data-bss-create>
+	<option value="">Choose browser</option>
+	<option value="chrome">Chrome</option>
+	<option value="edge">Edge</option>
+	<option value="firefox">Firefox</option>
+	<option value="opera">Opera</option>
+	<option value="safari">Safari</option>
+</select>
+
+<!-- Or using option: -->
+<script>
+	new Bss(document.querySelector('select'), {
+		search: true,
+		create: true,
+	})
+</script>

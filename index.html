@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://unpkg.com/prismjs/themes/prism.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@4.5.1/latin.css">
+  <link rel="stylesheet" href="https://unpkg.com/@erwinstone/bs-select@1.0.0/dist/bs-select.min.css">
+  <title>bs-select</title>
+	<style>
+		body {
+			font-family: 'Inter';
+		}
+	</style>
+</head>
+<body class="bg-lights position-relative" data-bs-spy="scroll" data-bs-target="#list-example">
+	<div id="list-example" class="list-group list-group-flush position-fixed left-0 top-0 m-4 d-none d-xl-flex">
+		<a class="list-group-item list-group-item-action" href="#features">Features</a>
+		<a class="list-group-item list-group-item-action" href="#installation">Installation</a>
+		<a class="list-group-item list-group-item-action" href="#usage">Usage/Examples</a>
+		<a class="list-group-item list-group-item-action" href="#options">Options</a>
+		<a class="list-group-item list-group-item-action" href="#methods">Methods</a>
+	</div>
+  <div class="container my-5 position-relative" id="container" style="max-width: calc(720px + 1rem)">
+      <div class="d-flex align-items-center gap-1">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="#0d6efd">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+        </svg>
+        <h1>@erwinstone/bs-select</h1>
+        <small>v1.0.0</small>
+      </div>
+      <p class="text-secondary">Bootstrap plugin to create select element with dropdown</p>
+      <p class="mb-5">
+        <a href="https://github.com/erwinheldy/bs-select" target="_blank" class="link-secondary text-decoration-none d-flex align-items-center gap-1">
+          <svg viewBox="0 0 24 24" width="21" height="21" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          Github
+        </a>
+      </p>
+
+			<h2 class="fw-bold" id="features">Features</h2>
+			<ul class="text-secondary">
+				<li>Placeholder</li>
+				<li>Optgroup</li>
+				<li>Multiple</li>
+				<li>Search</li>
+				<li>Creatable</li>
+				<li>Clearable</li>
+				<li>Disabled</li>
+				<li>Disabled options</li>
+				<li>Sizing</li>
+				<li>Validation</li>
+			</ul>
+
+			<h2 class="fw-bold mt-5 pt-5" id="installation">Installation</h2>
+			<p class="text-secondary">Install with npm:</p>
+			<pre><code class="language-bash">npm install @erwinstone/bs-select</code></pre>
+			<p class="text-secondary mt-3">Install from cdn:</p>
+			<pre data-src="code/cdn.html"></pre>
+
+			<h2 class="fw-bold mt-5 pt-5" id="usage">Usage/Examples</h2>
+			<p class="text-secondary">Place <code>css</code> between <code>&lt;head&gt;&lt;/head&gt;</code> tags:</p>
+			<pre><code class="language-html">&lt;head&gt;
+	...
+	&lt;link href="https://unpkg.com/@erwinstone/bs-select@1.0.0/dist/bs-select.min.css" rel="stylesheet"&gt;
+&lt;/head&gt;</code></pre>
+			<p class="text-secondary mt-5">Place <code>js</code> before <code>&lt;/body&gt;</code> tag:</p>
+			<pre><code class="language-html">&lt;body&gt;
+	...
+	&lt;script src="https://unpkg.com/@erwinstone/bs-select@1.0.0/dist/bs-select.min.js"&gt;&lt;/script&gt;
+&lt;/body&gt;</code></pre>
+			<p class="mt-5">* You can also use bs-select as javascript module:</p>
+			<pre><code class="language-html">&lt;script src="yourscript.js" type="module"&gt;&lt;/script&gt;</code></pre>
+			<p class="mt-4 text-muted">In <code>yourscript.js</code> file, import Bss (Change location according to your path):</p>
+			<pre><code class="language-javascript">import Bss from './path/to/bs-select.module.js'</code></pre>
+			<p class="mt-5">Or you can use it directly in the html script as a module:</p>
+			<pre><code class="language-html">&lt;script type="module"&gt;
+	import Bss from './path/to/bs-select.module.js'
+&lt;/script&gt;
+			</code></pre>
+
+			<h4 class="fw-bold mt-5 pt-5">Examples:</h4>
+
+      <div style="max-width: 350px" class="row row-cols-1 g-5 mt-0">
+        <div class="col">
+					<div class="d-flex align-items-center justify-content-between mb-3">
+						<h6 class="mb-0 small fw-bold">1. Basic</h6>
+						<button data-code="code/basic.html" type="button" title="View source" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#sourceCodeModal">&lt;/&gt;</button>
+					</div>
+					<select class="form-select">
+						<option value="chrome">Chrome</option>
+						<option value="edge">Edge</option>
+						<option value="firefox">Firefox</option>
+						<option value="opera">Opera</option>
+						<option value="safari">Safari</option>
+					</select>
+        </div>
+
+        <div class="col">
+					<div class="d-flex align-items-center justify-content-between mb-3">
+						<h6 class="mb-0 small fw-bold">2. Using Placeholder</h6>
+						<button data-code="code/placeholder.html" type="button" title="View source" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#sourceCodeModal">&lt;/&gt;</button>
+					</div>
+					<select class="form-select">
+						<option value="">Choose browser</option>
+						<option value="chrome">Chrome</option>
+						<option value="edge">Edge</option>
+						<option value="firefox">Firefox</option>
+						<option value="opera">Opera</option>
+						<option value="safari">Safari</option>
+					</select>
+        </div>
+
+        <div class="col">
+					<div class="d-flex align-items-center justify-content-between mb-3">
+						<h6 class="mb-0 small fw-bold">3. Using Optgroup</h6>
+						<button data-code="code/optgroup.html" type="button" title="View source" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#sourceCodeModal">&lt;/&gt;</button>
+					</div>
+					<select class="form-select">
+						<optgroup label="Theropods">
+							<option>Tyrannosaurus</option>
+							<option>Velociraptor</option>
+							<option>Deinonychus</option>
+						</optgroup>
+						<optgroup label="Sauropods">
+							<option>Diplodocus</option>
+							<option>Saltasaurus</option>
+							<option>Apatosaurus</option>
+						</optgroup>
+					</select>
+        </div>
+
+        <div class="col">
+					<div class="d-flex align-items-center justify-content-between mb-3">
+						<h6 class="mb-0 small fw-bold">4. Multiple</h6>
+						<button data-code="code/multiple.html" type="button" title="View source" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#sourceCodeModal">&lt;/&gt;</button>
+					</div>
+					<select class="form-select" multiple>
+						<option value="">Choose browser</option>
+						<option selected value="chrome">Chrome</option>
+						<option value="edge">Edge</option>
+						<option selected value="firefox">Firefox</option>
+						<option value="opera">Opera</option>
+						<option value="safari">Safari</option>
+					</select>
+        </div>
+
+        <div class="col">
+					<div class="d-flex align-items-center justify-content-between mb-3">
+						<h6 class="mb-0 small fw-bold">5. Search</h6>
+						<button data-code="code/search.html" type="button" title="View source" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#sourceCodeModal">&lt;/&gt;</button>
+					</div>
+					<select class="form-select" data-bss-search>
+						<option value="">Choose browser</option>
+						<option value="chrome">Chrome</option>
+						<option value="edge">Edge</option>
+						<option value="firefox">Firefox</option>
+						<option value="opera">Opera</option>
+						<option value="safari">Safari</option>
+					</select>
+        </div>
+
+        <div class="col">
+					<div class="d-flex align-items-center justify-content-between mb-3">
+						<h6 class="mb-0 small fw-bold">6. Creatable</h6>
+						<button data-code="code/creatable.html" type="button" title="View source" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#sourceCodeModal">&lt;/&gt;</button>
+					</div>
+					<select class="form-select" data-bss-search data-bss-create>
+						<option value="">Choose browser</option>
+						<option value="chrome">Chrome</option>
+						<option value="edge">Edge</option>
+						<option value="firefox">Firefox</option>
+						<option value="opera">Opera</option>
+						<option value="safari">Safari</option>
+					</select>
+        </div>
+
+        <div class="col">
+					<div class="d-flex align-items-center justify-content-between mb-3">
+						<h6 class="mb-0 small fw-bold">7. Clearable</h6>
+						<button data-code="code/clearable.html" type="button" title="View source" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#sourceCodeModal">&lt;/&gt;</button>
+					</div>
+					<select class="form-select" data-bss-clear>
+						<option value="">Choose browser</option>
+						<option selected value="chrome">Chrome</option>
+						<option value="edge">Edge</option>
+						<option value="firefox">Firefox</option>
+						<option value="opera">Opera</option>
+						<option value="safari">Safari</option>
+					</select>
+        </div>
+
+        <div class="col">
+					<div class="d-flex align-items-center justify-content-between mb-3">
+						<h6 class="mb-0 small fw-bold">8. Disabled</h6>
+						<button data-code="code/disabled.html" type="button" title="View source" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#sourceCodeModal">&lt;/&gt;</button>
+					</div>
+					<div class="vstack gap-2">
+						<select class="form-select" disabled>
+							<option value="">Choose browser</option>
+							<option value="chrome">Chrome</option>
+							<option value="edge">Edge</option>
+							<option value="firefox">Firefox</option>
+							<option value="opera">Opera</option>
+							<option value="safari">Safari</option>
+						</select>
+						<select class="form-select" multiple disabled>
+							<option value="">Choose browser</option>
+							<option selected value="chrome">Chrome</option>
+							<option value="edge">Edge</option>
+							<option selected value="firefox">Firefox</option>
+							<option value="opera">Opera</option>
+							<option value="safari">Safari</option>
+						</select>
+					</div>
+        </div>
+
+        <div class="col">
+					<div class="d-flex align-items-center justify-content-between mb-3">
+						<h6 class="mb-0 small fw-bold">9. Disabled option</h6>
+						<button data-code="code/disabled-options.html" type="button" title="View source" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#sourceCodeModal">&lt;/&gt;</button>
+					</div>
+					<select class="form-select">
+						<option value="">Choose browser</option>
+						<option value="chrome">Chrome</option>
+						<option value="edge">Edge</option>
+						<option value="firefox">Firefox</option>
+						<option disabled value="opera">Opera</option>
+						<option disabled value="safari">Safari</option>
+					</select>
+        </div>
+
+        <div class="col">
+					<div class="d-flex align-items-center justify-content-between mb-3">
+						<h6 class="mb-0 small fw-bold">10. Sizing</h6>
+						<button data-code="code/sizing.html" type="button" title="View source" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#sourceCodeModal">&lt;/&gt;</button>
+					</div>
+					<div class="vstack gap-2">
+						<select class="form-select form-select-sm" data-bss-clear>
+							<option value="">Choose browser</option>
+							<option value="chrome">Chrome</option>
+							<option value="edge">Edge</option>
+							<option value="firefox">Firefox</option>
+							<option value="opera">Opera</option>
+							<option value="safari">Safari</option>
+						</select>
+						<select multiple class="form-select form-select-sm" data-bss-clear>
+							<option value="">Choose browser</option>
+							<option selected value="chrome">Chrome</option>
+							<option value="edge">Edge</option>
+							<option selected value="firefox">Firefox</option>
+							<option value="opera">Opera</option>
+							<option value="safari">Safari</option>
+						</select>
+						<select class="form-select" data-bss-clear>
+							<option value="">Choose browser</option>
+							<option value="chrome">Chrome</option>
+							<option value="edge">Edge</option>
+							<option value="firefox">Firefox</option>
+							<option value="opera">Opera</option>
+							<option value="safari">Safari</option>
+						</select>
+						<select multiple class="form-select" data-bss-clear>
+							<option value="">Choose browser</option>
+							<option selected value="chrome">Chrome</option>
+							<option value="edge">Edge</option>
+							<option selected value="firefox">Firefox</option>
+							<option value="opera">Opera</option>
+							<option value="safari">Safari</option>
+						</select>
+						<select class="form-select form-select-lg" data-bss-clear>
+							<option value="">Choose browser</option>
+							<option value="chrome">Chrome</option>
+							<option value="edge">Edge</option>
+							<option value="firefox">Firefox</option>
+							<option value="opera">Opera</option>
+							<option value="safari">Safari</option>
+						</select>
+						<select multiple class="form-select form-select-lg" data-bss-clear>
+							<option value="">Choose browser</option>
+							<option selected value="chrome">Chrome</option>
+							<option value="edge">Edge</option>
+							<option selected value="firefox">Firefox</option>
+							<option value="opera">Opera</option>
+							<option value="safari">Safari</option>
+						</select>
+					</div>
+        </div>
+
+        <div class="col">
+					<div class="d-flex align-items-center justify-content-between mb-3">
+						<h6 class="mb-0 small fw-bold">11. Validation</h6>
+						<button data-code="code/validation.html" type="button" title="View source" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#sourceCodeModal">&lt;/&gt;</button>
+					</div>
+					<form class="needs-validation vstack gap-3" novalidate>
+						<div>
+							<select class="form-select" data-bss-clear required>
+								<option value="">Choose browser</option>
+								<option value="chrome">Chrome</option>
+								<option value="edge">Edge</option>
+								<option value="firefox">Firefox</option>
+								<option value="opera">Opera</option>
+								<option value="safari">Safari</option>
+							</select>
+							<div class="invalid-feedback">This field is required.</div>
+							<div class="valid-feedback">Good choice.</div>
+						</div>
+						<div>
+							<select class="form-select" multiple required>
+								<option value="">Choose browser</option>
+								<option value="chrome">Chrome</option>
+								<option value="edge">Edge</option>
+								<option value="firefox">Firefox</option>
+								<option value="opera">Opera</option>
+								<option value="safari">Safari</option>
+							</select>
+							<div class="invalid-feedback">This field is required.</div>
+							<div class="valid-feedback">Good choice.</div>
+						</div>
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</form>
+        </div>
+
+				<div class="col">
+					<div class="d-flex align-items-center justify-content-between mb-3">
+						<h6 class="mb-0 small fw-bold">12. Methods</h6>
+						<button data-code="code/methods.html" type="button" title="View source" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#sourceCodeModal">&lt;/&gt;</button>
+					</div>
+					<div class="vstack gap-3">
+						<select class="form-select" id="example1">
+							<option value="">Choose browser</option>
+							<option value="chrome">Chrome</option>
+							<option value="edge">Edge</option>
+							<option value="firefox">Firefox</option>
+							<option value="opera">Opera</option>
+							<option value="safari">Safari</option>
+						</select>
+						<button class="btn btn-light" type="button" id="choose-firefox">Choose firefox</button>
+						<button class="btn btn-light" type="button" id="get-value">Get value</button>
+						<hr>
+						<select class="form-select" id="example2" multiple>
+							<option value="">Choose browser</option>
+							<option value="chrome">Chrome</option>
+							<option value="edge">Edge</option>
+							<option value="firefox">Firefox</option>
+							<option value="opera">Opera</option>
+							<option value="safari">Safari</option>
+						</select>
+						<button class="btn btn-light" type="button" id="choose-firefox-chrome">Choose firefox & chrome</button>
+						<button class="btn btn-light" type="button" id="remove-firefox">Remove firefox</button>
+						<button class="btn btn-light" type="button" id="get-values">Get values</button>
+					</div>
+				</div>
+
+      </div>
+
+			<h2 class="fw-bold mt-5 pt-5" id="options">Options</h2>
+			<div class="table-responsive">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Type</th>
+							<th>Default</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><code>search</code></td>
+							<td>boolean</td>
+							<td><code>false</code></td>
+							<td>Show search input</td>
+						</tr>
+						<tr>
+							<td><code>create</code></td>
+							<td>boolean</td>
+							<td><code>false</code></td>
+							<td>Allow to create a new one if no results found</td>
+						</tr>
+						<tr>
+							<td><code>clear</code></td>
+							<td>boolean</td>
+							<td><code>false</code></td>
+							<td>Show clear button</td>
+						</tr>
+						<tr>
+							<td><code>maxHeight</code></td>
+							<td>string</td>
+							<td><code>25rem</code></td>
+							<td>Maximum height to show scrollbar</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<h2 class="fw-bold mt-5 pt-5" id="methods">Methods</h2>
+			<div class="table-responsive">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Params</th>
+							<th>Returns</th>
+							<th>Example</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><code>setValue</code></td>
+							<td nowrap><code>string</code></td>
+							<td><code>void</code></td>
+							<td>
+								<pre><code class="language-javascript">select.setValue('chrome')</code></pre>
+							</td>
+						</tr>
+						<tr>
+							<td><code>removeValue</code></td>
+							<td><code>string</code></td>
+							<td><code>void</code></td>
+							<td>
+								<pre><code class="language-javascript">select.removeValue('chrome')</code></pre>
+							</td>
+						</tr>
+						<tr>
+							<td><code>getValue</code></td>
+							<td><code>null</code></td>
+							<td><code>string | array</code></td>
+							<td>
+								<pre><code class="language-javascript">select.getValue()</code></pre>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+  </div>
+
+	<div class="modal" id="sourceCodeModal" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-xl modal-dialog-scrollable">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Source code</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body"></div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://unpkg.com/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://unpkg.com/prismjs/prism.js" data-manual></script>
+	<script src="https://unpkg.com/prismjs/plugins/file-highlight/prism-file-highlight.min.js"></script>
+	<script src="https://unpkg.com/@erwinstone/bs-select@1.0.0/dist/bs-select.min.js"></script>
+  <script>
+
+		for (const select of document.querySelectorAll('select:not([id])')) {
+			new Bss(select)
+		}
+
+		const example1 = new Bss(document.getElementById('example1'))
+		document.getElementById('choose-firefox').addEventListener('click', () => {
+			example1.setValue('firefox')
+		})
+		document.getElementById('get-value').addEventListener('click', () => {
+			alert(example1.getValue())
+		})
+
+		const example2 = new Bss(document.getElementById('example2'))
+		document.getElementById('choose-firefox-chrome').addEventListener('click', () => {
+			example2.setValue('firefox')
+			example2.setValue('chrome')
+		})
+		document.getElementById('remove-firefox').addEventListener('click', () => {
+			example2.removeValue('firefox')
+		})
+		document.getElementById('get-values').addEventListener('click', () => {
+			alert(JSON.stringify(example2.getValue()))
+		})
+
+		Prism.highlightAll()
+
+		const sourceCodeModal = document.getElementById('sourceCodeModal')
+		sourceCodeModal.addEventListener('show.bs.modal', (e) => {
+			sourceCodeModal.querySelector('.modal-body').innerHTML = `<pre data-src="${e.relatedTarget.getAttribute('data-code')}"></pre>`
+			Prism.highlightAll()
+		})
+
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    void (function() {
+      document.querySelectorAll('.needs-validation').forEach(form => {
+        form.addEventListener('submit', event => {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+
+          form.classList.add('was-validated')
+        })
+      })
+    })()
+
+  </script>
+</body>
+</html>

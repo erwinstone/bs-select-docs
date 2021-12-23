@@ -1,0 +1,16 @@
+<!-- Using data-bss-clear attribute: -->
+<select class="form-select" data-bss-clear>
+	<option value="">Choose browser</option>
+	<option selected value="chrome">Chrome</option>
+	<option value="edge">Edge</option>
+	<option value="firefox">Firefox</option>
+	<option value="opera">Opera</option>
+	<option value="safari">Safari</option>
+</select>
+
+<!-- Or using option: -->
+<script>
+	new Bss(document.querySelector('select'), {
+		clear: true,
+	})
+</script>
