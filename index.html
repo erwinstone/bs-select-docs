@@ -336,20 +336,23 @@
 							<option value="opera">Opera</option>
 							<option value="safari">Safari</option>
 						</select>
-						<button class="btn btn-light" type="button" id="choose-firefox">Choose firefox</button>
-						<button class="btn btn-light" type="button" id="get-value">Get value</button>
+						<div class="hstack gap-3 flex-wrap">
+							<button class="btn btn-sm btn-light" type="button" id="setValue1"><code>setValue('firefox')</code></button>
+							<button class="btn btn-sm btn-light" type="button" id="getValue1"><code>getValue()</code></button>
+						</div>
 						<hr>
 						<select class="form-select" id="example2" multiple>
 							<option value="">Choose browser</option>
-							<option value="chrome">Chrome</option>
+							<option selected value="chrome">Chrome</option>
 							<option value="edge">Edge</option>
-							<option value="firefox">Firefox</option>
+							<option selected value="firefox">Firefox</option>
 							<option value="opera">Opera</option>
 							<option value="safari">Safari</option>
 						</select>
-						<button class="btn btn-light" type="button" id="choose-firefox-chrome">Choose firefox & chrome</button>
-						<button class="btn btn-light" type="button" id="remove-firefox">Remove firefox</button>
-						<button class="btn btn-light" type="button" id="get-values">Get values</button>
+						<div class="hstack gap-3 flex-wrap">
+							<button class="btn btn-sm btn-light" type="button" id="removeValue"><code>removeValue('firefox')</code></button>
+							<button class="btn btn-sm btn-light" type="button" id="getValue2"><code>getValue()</code></button>
+						</div>
 					</div>
 				</div>
 
@@ -463,22 +466,18 @@
 		}
 
 		const example1 = new Bss(document.getElementById('example1'))
-		document.getElementById('choose-firefox').addEventListener('click', () => {
+		document.getElementById('setValue1').addEventListener('click', () => {
 			example1.setValue('firefox')
 		})
-		document.getElementById('get-value').addEventListener('click', () => {
+		document.getElementById('getValue1').addEventListener('click', () => {
 			alert(example1.getValue())
 		})
 
 		const example2 = new Bss(document.getElementById('example2'))
-		document.getElementById('choose-firefox-chrome').addEventListener('click', () => {
-			example2.setValue('firefox')
-			example2.setValue('chrome')
-		})
-		document.getElementById('remove-firefox').addEventListener('click', () => {
+		document.getElementById('removeValue').addEventListener('click', () => {
 			example2.removeValue('firefox')
 		})
-		document.getElementById('get-values').addEventListener('click', () => {
+		document.getElementById('getValue2').addEventListener('click', () => {
 			alert(JSON.stringify(example2.getValue()))
 		})
 
